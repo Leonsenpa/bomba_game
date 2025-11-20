@@ -1,0 +1,12 @@
+# Dossiers générés automatiquement par Godot
+.import/
+.godot/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Sauvegardes potentielles d'éditeur
+*.tmp
+*.swp
+*.swo
