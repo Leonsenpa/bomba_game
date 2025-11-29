@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://fyk86mm7ohgx"]
+
+[ext_resource type="PackedScene" uid="uid://3nmw3rp27fqm" path="res://Tableau/tab_base.tscn" id="1_tot66"]
+
+[node name="TabBase" instance=ExtResource("1_tot66")]
+
+[node name="exit" parent="." index="3"]
+next_room_path = "res://Tableau/tab_2.tscn"
+current_room_path = "res://Tableau/tab_1.tscn"

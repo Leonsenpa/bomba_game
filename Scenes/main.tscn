@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1t6k84o5qocu"]
+
+[ext_resource type="PackedScene" uid="uid://btm8r41p0ucuo" path="res://Scenes/bombman.tscn" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://bvwylwh4gfowu" path="res://assets/PNG/Tiles/Tiles/tile_0000.png" id="2_bo1nx"]
+[ext_resource type="Script" uid="uid://com40s08gxlfp" path="res://Scenes/tab_manager.gd" id="3_8gbba"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bo1nx"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(16, 15)
+
+[node name="Main" type="Node2D"]
+
+[node name="bombman" parent="." instance=ExtResource("1_jjgbg")]
+position = Vector2(117, 156)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(120, 226)
+physics_material_override = SubResource("PhysicsMaterial_bo1nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture_filter = 1
+position = Vector2(50.000015, 0)
+scale = Vector2(13.625001, 1)
+texture = ExtResource("2_bo1nx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(50.000015, 0.5)
+scale = Vector2(13.625001, 1)
+shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="tab_manager" type="Node" parent="."]
+script = ExtResource("3_8gbba")

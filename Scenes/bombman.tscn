@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://btm8r41p0ucuo"]
+
+[ext_resource type="Script" uid="uid://bmq0a8hkl2jmw" path="res://Scenes/bombman.gd" id="1_0f382"]
+[ext_resource type="Texture2D" uid="uid://cowxjmhvfxkrs" path="res://assets/PNG/Players/Tilemap/tilemap_packed.png" id="1_p1tg0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f382"]
+atlas = ExtResource("1_p1tg0")
+region = Rect2(72, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02a4j"]
+atlas = ExtResource("1_p1tg0")
+region = Rect2(0, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb8xm"]
+atlas = ExtResource("1_p1tg0")
+region = Rect2(48, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kestv"]
+atlas = ExtResource("1_p1tg0")
+region = Rect2(0, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v22ju"]
+atlas = ExtResource("1_p1tg0")
+region = Rect2(24, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch2xs"]
+atlas = ExtResource("1_p1tg0")
+region = Rect2(48, 72, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bifnb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f382")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02a4j")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pb8xm")
+}],
+"loop": true,
+"name": &"Jump_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kestv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v22ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch2xs")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7w1lw"]
+size = Vector2(14, 17)
+
+[node name="bombman" type="CharacterBody2D"]
+script = ExtResource("1_0f382")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_bifnb")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7w1lw")

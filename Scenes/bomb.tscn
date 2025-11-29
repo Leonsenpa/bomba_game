@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjv3m5sax1hg7"]
+
+[ext_resource type="Texture2D" uid="uid://cdefigwepgt" path="res://assets/PNG/Tiles/Tiles/tile_0124.png" id="1_573fp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fn8o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_573fp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfxiy"]
+radius = 7.0
+
+[node name="bomb" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4fn8o")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nfxiy")
